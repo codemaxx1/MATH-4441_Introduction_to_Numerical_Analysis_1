@@ -1,0 +1,148 @@
+\documentclass[12pt, a4paper]{article}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\begin{document}
+\noindent
+Nicholas Garrett\\ \\
+Professor Zhu\\ \\
+MATH 4441\\ \\
+10/13/2021\\ \\
+
+
+\begin{center}
+	\centering{	Homework 6\\ }
+\end{center}
+
+\noindent
+1. a.\\
+		
+	L:\\
+
+	\(
+		\begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+		\end{bmatrix}
+		\) \\ \\
+
+	U:\\
+
+		\(
+		\begin{bmatrix}
+		5 & 6 & 7 & 8 \\
+		0 & 4 & 3 & 2 \\
+		0 & 0 & -1 & -2 \\
+		0 & 0 & 0& 1 
+		\end{bmatrix}
+		\) \\ \\
+
+	P=\\
+
+		\(
+		\begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 1 \\
+		0 & 0 & 1 & 0
+		\end{bmatrix}
+		\) \\ \\ \\
+	
+\noindent
+1. b.\\
+		
+		
+		\(\begin{bmatrix}
+		5 & 6 & 7 & 8 \\
+		0 & 4 & 3 & 2 \\
+		0 & 0 & 0& 1 \\
+		0 & 0 & -1 & -2 
+		\end{bmatrix}
+		\begin{bmatrix}
+		26\\
+		9\\
+		1\\
+		-3
+		\end{bmatrix}
+		\Rightarrow	
+		\begin{bmatrix}
+		5 & 6 & 7 & 8 \\
+		0 & 4 & 3 & 2 \\
+		0 & 0 & -1 & -2 \\
+		0 & 0 & 0& 1 
+		\end{bmatrix}
+		\begin{bmatrix}
+		26\\
+		9\\
+		-3\\
+		1
+		\end{bmatrix}\) \\
+		
+		Yields, through substitution, \(x = (1, 1, 1, 1)^T \) \\ \\ \\	
+
+\noindent
+2.0\\
+
+	See code \\ \\ \\
+
+\noindent
+3.\\
+
+	Prove that \( \frac{||x-x*||}{||x*||} \leq k(A)\frac{||r||}{||b||} \):\\ \\
+
+	For Ax*=b, we are adding a small perterbation (by approximation) to x*, being x: \(Ax=b + \delta b\) \\
+
+	Thus, the error of \( \frac{||x - x^* ||}{||x^*||} = \frac{||\delta x^*||}{||x^*||}\) \\
+
+	From the equations \(Ax^* = b\) and \(A(x^* +\delta x^*) = Ax = b + \delta b\), and by subtracting Ax* to clear Ax* and b, we get \( \delta x^* = A^{-1} \delta b\), which can be normed to get \(||\delta x^*|| = ||A^{-1}\delta b|| \)\\
+
+	Therefore, \( ||\delta x^*|| \leq ||A^{-1}|| \,||\delta b||\), so \( \frac{||\delta x^*||}{||x^*||} \leq \frac{||A^{-1}|| \, ||\delta b||}{||x^*||}\). \\
+	
+	Then, the equation b=Ax* implies that \( ||b||=||Ax^*|| \leq ||A|| \, ||x^*||\), or equivalently, \( \frac{1}{||x^*|||} \leq ||A|| \, \frac{1}{||b||}\) .
+	
+	Therefore,  \( \frac{||\delta x^*||}{||x^*||} \leq \frac{||A^{-1}|| \, ||\delta b||}{||x^*||} \leq    \frac{||A||\,||A^{-1}|| \, ||\delta b||}{||b||}\) \\
+
+	As \(k(A) = ||A|| \, ||A^{-1}||\), we can re-write \(\frac{||A||\,||A^{-1}|| \, ||\delta b||}{||b||}\) to be \(k(A)\frac{||\delta b||}{||b||}\) \\
+
+	Then, \(\delta b = A \delta x = A(x^*-x) = (Ax^* - Ax) = b-Ax\)
+
+	Therefore, \(k(A)\frac{||\delta b||}{||b||} \, = \, k(A)\frac{||b-Ax||}{||b||}\) and since r=b-Ax, we can say it is \(k(A)\frac{||r||}{||b||}\)\\ \\
+
+So, \(\frac{||x-x*||}{||x*||} \leq k(A)\frac{||r||}{||b||} \) when the residual r = (b - Ax) and \(k(A) = ||A||\,||A^{-1}||\) \\ \\ \\
+
+
+
+	
+	
+\noindent
+4.\\
+
+Prove that if A is orthogonal, then \(k(A) = ||A||_2||A^{-1}||_2 = 1\):\\ \\
+
+By the norm equvalency, \(||A||\,||A^{-1}|| \geq ||AA^{-1}||\)\\
+
+  Orthogonal matrix multiplication by its inverse yields the identity matrix, thus \(||AA^{-1}|| = ||I|| = 1\) \\
+
+So, \( ||A||_2||A^{-1}||_2 \geq 1\)  \\
+
+By \(l_2\) norm and by preposition 9, \(||A||_2 = \sqrt{p(A^TA)} \)\\
+
+Because \(A^TA = I\) by principle of orthogonal matrixes, \( ||A||_2 = \sqrt{p(I)}\) \\
+
+By preposition, \(p(A) \leq ||A^k||^{1/k}\) in the case where A = I, \(p(I) = 1\)\\
+
+So, \(||A||_2 \leq 1 \) and \( ||A^T||_2 \leq 1\) by the same principle, then \( ||A||_2 \, ||A^{-1}||_2  \leq 1\).  \\
+
+Therefore, as \(||A||_2 \, ||A^{-1}||_2 \leq 1 \) and \( ||A||_2||A^{-1}||_2 \geq 1\), we can say that \(k(A) = ||A||_2||A^{-1}||_2 = 1\) if A is orthogonal.
+
+
+\end{document}  

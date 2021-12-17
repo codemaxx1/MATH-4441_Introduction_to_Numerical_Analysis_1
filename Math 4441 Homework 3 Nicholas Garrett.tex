@@ -1,0 +1,112 @@
+\documentclass[12pt, a4paper]{article}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+\usepackage{indentfirst}
+\usepackage{graphicx}
+
+\begin{document}
+\noindent
+Nick Garrett\\ \\
+Professor Zhu\\ \\
+Math 4441\\ \\
+9/15/2021\\ \\
+
+
+\begin{center}
+	\centering{	Homework 3\\ }
+\end{center}
+
+\noindent
+1.\\
+\noindent
+a.\\ 
+
+	According to the program, 22 iterations were required before the estimation went below the atol level.\\
+	
+	The estimate given in the lecture follows a calculation which returns \(  \lceil log_2{\frac{2}{2*10^{-8}}}  \rceil = 27\).  So, there are 27 iterations required\\
+	
+	As you can see, the iterations needed by the program was smaller than the estimate function predicted.  \\ \\ \\
+	
+\noindent
+b.\\
+
+	The absolute error returned by the MATLAB program is \( 1.99 * 10^{-7} \). This could be predicted through a convergence analysis, as the error is partly, if not entirely, caused by the convergence difference. 	\\ \\ \\
+
+\noindent
+2.\\
+	
+	Given \( x_{k+1} = g(x_{k}), k = 0,1,... \), we can see that the order of convergence depends on how many derivatives vanish at \( x = x* \) by taking a Taylor series estimate of \( x^* - x_{k+1}  \), or \(  g(x_k) - g(x^*) : \)  \\
+	
+	\( g(x_{k}) - g(x^*) \approx g'(x^*)*(x_{k} - x^*) + \frac{g''(x^*)}{2}(x_k - x^*)^2 + \frac{g'''(x^*)}{6}(x_k - x^*)^3 + ... \) \\
+	
+	Through cancellation, this evaluates to: \\
+	
+	\( g(x_{k}) - g(x^*) \approx  \frac{g^p(\epsilon_n)}{p!}(x_k - x^*)^p \) \\ \\\\
+	 
+	 For a situation where \( g'(x^*) = ... = g^{(r)}(x^*) = 0\), we could say that the convergence rate should be order r. \\ \\ \\
+
+\noindent	 
+3\\
+	
+	The out put for a = 10:
+	\begin{center}
+		\centering
+		\includegraphics[width=100mm]{Math 4441 Homework 3 Nicholas Garrett output1}
+	\end{center}
+	
+	The output for a = 2:
+	\begin{center}
+		\centering
+		\includegraphics[width=100mm]{Math 4441 Homework 3 Nicholas Garrett output2}
+	\end{center}
+	
+	the output for a = 0:
+	\begin{center}
+		\centering
+		\includegraphics[width=100mm]{Math 4441 Homework 3 Nicholas Garrett output3}
+	\end{center}
+	
+	From these outputs, we can see that the convergence appears to be approximately quadratic order, which is about what we were expecting by Theorem 2, as \( g''(x)  \neq 0\).  \\ \\ \\
+
+\noindent	
+4\\
+\noindent
+a\\
+
+	\( g(x) = \frac{f(x)}{f'(x)} \) \\
+	
+	
+\( x_{k+1} = x_k - \frac{g(x_k)}{g'(x_k)}\) \\
+	 
+	 As we have already defined g(x), we need simply replace the values of \( g(x_k) \) and \( g'(x_k) \) with their actual values to get:\\
+	 
+	 \( x_{k+1} = x_k - \frac{ f(x_k) }{ f'(x_k) * \frac{d}{dx_k}\frac{f(x_k)}{f'(x_k)} } \) \\
+	 
+	 \( \Rightarrow   x_{k+1} = x_k - \frac{ f(x_k) }{ f'(x_k) * (1 - \frac{f(x_k)f''(x_k)}{ f'(x_k)^2 } ) } \) \\
+	
+	\(  \Rightarrow   x_{k+1} = x_k - \frac{ f(x_k) * f'(x_k)^2 }{ f'(x_k) * (f'(x_k)^2 - f(x_k)f''(x_k) ) } \) \\ 
+	
+	\(  \Rightarrow   x_{k+1} = x_k - \frac{ f(x_k) * f'(x_k) }{ (f'(x_k)^2 - f(x_k)f''(x_k) ) } \) \\ \\ \\
+
+\noindent
+b\\
+
+	If we use the iteration from 4.a for \( f(x) = (x-1)^2e^x \), we should get: \\
+		
+		\begin{center}
+		\centering
+		\includegraphics[width=100mm]{Math 4441 Homework 3 Nicholas Garrett output4}
+	\end{center}
+	
+	\( x_{k+1} = x_k - \frac{ (x_k-1)^2e^x_k * e^x(x^2 -1) }{ ( (e^x(x^2 -1))^2 - ((x-1)^2e^x)(e^x(x^2+2x-1))) } \) \\ \\
+	
+	With normal Newton's method and initial guess \( x_0 = 2 \), we should get (*note: I used Wolfram Alpha for this): \\
+	
+	\( x \approx 1\) after 27 steps, with \\
+	
+	\( x_{k+1} = x_k - \frac{ e^{x_k} (x_k -1)^2}{e^{x_k}(x_k -1)^2 + 2e^{x_k} (x_k -1)} \)
+\end{document}  

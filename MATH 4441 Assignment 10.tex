@@ -1,0 +1,55 @@
+\documentclass[12pt, a4paper]{article}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+
+\begin{document}
+\noindent
+Nicholas Garrett\\ \\
+Professor Zhu\\ \\
+MATH 4441\\ \\
+12/1/2021\\ \\
+
+
+\begin{center}
+	\centering{	Homework 10\\ }
+\end{center}
+
+\noindent
+1.
+... \\ \\ \\ \\
+
+\noindent
+2.
+Shown below is the returned graph of the absolute errors given when the code is run.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{part2Figure.png}
+\end{figure}
+As we can see from the figure, and as was shown repeatedly through testing muliple times, the iterative sequence is very fast for the first handful of iterations, quickly converging by several orders very quickly. 
+ However, it then hits a bit of a plateau and slows down significantly. Due to this being a power iterative sequence only and without shifting, if we were to add a shifting parameter, it could be assumed this deceleration of eigenvalue norm convergence would be less significant. \\ \\ \\ \\
+
+\noindent
+3.
+Below is shown the graphical outputs for eigenvalue norms.
+\begin{figure}
+\centering
+\includegraphics[width=70mm]{part3Figure1.png}
+\includegraphics[width=70mm]{part3Figure2.png}
+\end{figure}
+As the figures show, when \(\sigma = 35\), both matrices converge on their eigenvalues less quickly.  So, by this observation, we can be confidently in saying that \( \lambda \) is closer to 33 than it is to 35.  This is because by the closer a shifting parameter is to the eigenvalue, the faster it converges. \\ \\ \\ \\
+
+
+\noindent
+4.
+The matrix \(A_{1}\) is defined to be the QR factorization of the initial matrix A.  Then, as the iteration sequence defines, each iteration of\(A_{k}\) is the QR factorization of the previous iteration (\(A_{k-1}\))\\
+Then, since each iteration is orthogonally similar to the iteration prior to it, as defined by \(A_{k} = R_{k-1}Q_{k-1} = Q_{k-1}^TA_{k-1}Q_{k-1}\), we can know that each iteration must be orthogonally similar to the one imimidiately prior to it, and by the iteration, it is orthogonally similar to each matrix before it--including the original matrix.
+Therefore, for two matricies in adjacent iterations \(A_k\) and \(A_{k+1}\) are orthogonally similar.  \\
+\end{document}  

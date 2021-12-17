@@ -1,0 +1,91 @@
+\documentclass[12pt, a4paper]{article}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+
+\begin{document}
+\noindent
+Nicholas Garrett\\ \\
+Professor Zhu\\ \\
+MATH 4441\\ \\
+10/20/2021\\ \\
+
+
+\begin{center}
+	\centering{	Homework 7\\ }
+\end{center}
+
+\noindent
+1.a 
+\begin{verbatim}
+ti = [ 1.0; 1.5; 2.0; 2.5; 3.0 ]
+yi = [ 1.1; 1.2; 1.3; 1.3; 1.4 ]
+
+A = [   1, ti(1); 
+        1, ti(2); 
+        1, ti(3); 
+        1, ti(4); 
+        1, ti(5) ] 
+\end{verbatim} .\\ 
+
+\noindent
+1.b \\
+\( y = 0.14(ti) + 0.98 \) \\ \\
+
+
+\noindent
+1.c \\
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{equationFittingGraph.jpg}
+\end{figure}
+The Blue plot is from the provided data, the orange line is the iftted line. \\ \\
+
+\noindent
+1.d \\
+For whatever reason, MATLAB kept returning an error when I tried to use the norm command.  I tried building a vector of difference values that it could take the norm of, but that also threw an error.  \\
+Ultimately, I had to calculate by hand the \(l_2\)-norm, which is 0.003.\\
+
+Shown is the code I tried to use to calculate the norm:\\
+\begin{verbatim}
+% compute norm of the residual
+n = size(ti,1)
+%norm = norm(yi - psiTi(ti(i))),2)
+for i = 1:n
+    yi(i)
+    psiTi(i)
+    normV(i) = abs(yi(i) - psiTi(i))
+end
+norm(normV,2) 
+\end{verbatim} .\\ 
+
+\noindent
+2.a \\ 
+\indent
+\( H = I - \frac{2uu^T}{u^Tu} \\ \Rightarrow H*u = (I - \frac{2uu^T}{u^Tu})*u \\ \Rightarrow Hu = Iu - \frac{2uu^Tu}{u^Tu} \\ \Rightarrow Hu = Iu - \frac{2u}{1} \\ \Rightarrow Hu = u - 2u \\ \Rightarrow Hu = -u \) \\ \\
+
+\noindent
+2.b\\ 
+Givent that \( v^Tu = 0 \) \\
+\( H = I - \frac{2uu^T}{u^Tu} \\ \Rightarrow H*v = (I - \frac{2uu^T}{u^Tu})v \\ \Rightarrow  H*v = Iv - \frac{2uu^Tv}{u^Tu} \)\\ \( v^Tu = 0\) is given.  So, through symmetry, \(v^Tu = u^Tv = 0, \Rightarrow  H*v = Iv - \frac{2u0}{u^Tu}\\ \Rightarrow Hv = Iv - 0 \\ \Rightarrow Hv = v\) \\ \\
+
+\noindent
+3.a \\
+This algorithm should take about \((r^3)\) flops, as that is the number of operations used in factorization by Householder, but we only need to operate r times \\ \\	
+
+\noindent
+3.b \\
+See code \\ \\
+
+\noindent
+3.c \\
+See code \\ \\
+
+\end{document}  

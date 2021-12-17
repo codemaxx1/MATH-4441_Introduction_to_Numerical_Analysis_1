@@ -1,0 +1,183 @@
+\documentclass[12pt, a4paper]{article}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+
+
+\begin{document}
+\noindent
+Nick Garrett\\ \\
+Professor Zhu\\ \\
+Math 4441\\ \\
+9/22/2021\\ \\
+
+
+\begin{center} 
+	\centering{	Homework 4 \\ }
+\end{center}
+
+\noindent
+1.\\
+	
+	We know from the problem that the square matrix has all row sums of zero.  By this, we can say that Ax=0 for the matrix A is nxn and a vector x populated with 1, so x=(1,1,1,...1).  By Ax=0, we can say Ax=0I for I is the identity matrix of size n.\\ 	
+	
+	\( det(Ax) = det(0I) \Rightarrow det(Ax)=0 \Rightarrow det(A)det(x) = 0 \)\\
+	
+	And since the determinant of the vector is 1, we can say det(A)*1=0, thus the determinant of the matrix A is 0.  \\
+	
+	So, because the determinant of the matrix is zero, we know it is singular. \\ \\ \\
+	
+	 
+\noindent
+2.\\
+
+	Prove the maximum row-sum norm. \( \lVert A \rVert_1 = \underset{1 \leq j \leq n}{max} \Sigma_{i=1}^{m}|a_{ij}|  \) \\
+	
+	For any \(x \in R^n, \)
+	
+	\(  \lVert Ax \rVert_1 = \Sigma_{i=1}^{m} | \Sigma_{j=1}^{n} a_{ij}x_j|  \leq \Sigma_{i=1}^{m}\Sigma_{j=1}^{n}|a_{ij}| |x_j|  \) \\
+	
+	\( = \Sigma_{j=1}^{n}\Sigma_{i=1}^{m}|a_{ij}||x_j| = \Sigma_{j=1}^{n}|x_j|(\Sigma)_{i=1}^{m}|a_{ij}| \) \\
+	
+	\( \leq \underset{1 \leq j \leq n}{max} ( \Sigma_{i=1}^{m} |a_{ij}| ) \Sigma_{ j=1 }^{n}|x_j|\) \\
+	
+	\( = \underset{1 \leq j \leq n}{max} (\Sigma_{i=1}^{m}  | a_{ij} |)\lVert x \rVert_1 \) \\
+	
+	Therefore, we have \( \lVert A \rVert_1 = \underset{x \in R^n, x \neq 0}{max} \frac{\lVert Ax \rVert_1}{\lVert x \rVert_1} \leq \underset{1 \leq j \leq n}{max} \Sigma_{i=1}^{m}|a_{ij}|  \) \\ \\
+	
+	
+	To prove the other side of this inequality, let p be \( a \leq p \leq n\) such that \\
+		
+		\( \Sigma_{i=1}^{m}|a_{ip}| = \underset{1 \leq j \leq n}{max}\Sigma_{i=1}^{m}|a_{ij}| \)\\
+		
+	We choose \( x = e_p \), so that \( \Vert Ae_p \Vert_1 = \Sigma_{i=1}^{m} |a_{ip}| \) \\
+	
+	For this particular x, \( \Vert Ax \Vert_1 = \Sigma_{i=1}^{m}|a_{ip}| = \underset{1 \leq j \leq n}{max} \Sigma_{i=1}^{m}|a_{ij}| \) \\
+	
+	Therefore, we have \( \lVert A \rVert_1 = \underset{x \in R^n, x \neq 0}{max} \frac{\lVert Ax \rVert_1}{\lVert x \rVert_1} \geq \underset{1 \leq j \leq n}{max} \Sigma_{i=1}^{m}|a_{ij}|  \) \\ \\
+	
+	Hence, because we have proved  \( \lVert A \rVert_1 = \underset{x \in R^n, x \neq 0}{max} \frac{\lVert Ax \rVert_1}{\lVert x \rVert_1} \geq \underset{1 \leq j \leq n}{max} \Sigma_{i=1}^{m}|a_{ij}|  \) \\
+	and  \( \lVert A \rVert_1 = \underset{x \in R^n, x \neq 0}{max} \frac{\lVert Ax \rVert_1}{\lVert x \rVert_1} \geq \underset{1 \leq j \geq n}{max} \Sigma_{i=1}^{m}|a_{ij}|  \),\\
+	
+	we can say that  \( \lVert A \rVert_1 = \underset{x \in R^n, x \neq 0}{max} \frac{\lVert Ax \rVert_1}{\lVert x \rVert_1} = \underset{1 \leq j \leq n}{max} \Sigma_{i=1}^{m}|a_{ij}|  \) \\ \\ \\
+	
+	
+\noindent
+3.\\
+
+	According to the defiition of vector norms, a funcion is called a vector norm if it : \\
+	
+	1. \( \Vert x\Vert \geq 0 \) for any vector \(x \in R^n\) and \( \Vert x \Vert = 0\) if and only if x = 0.\\
+	
+	2. \(\Vert ax \Vert = |a|\Vert x\Vert \) for any vector \(x \in R^n\) and any scalar \( a \in R\) \\
+	
+	3. \( \Vert x+y \Vert \leq \Vert x\Vert + \Vert y\Vert \)\\
+	
+	To prove 1, take the multiplication of vector \( x^T \) and matrix A, then that product and vector x.  By this process, \( v^TAv = B\) which, as matrix A is positive, is simililarly positive for vector v and 0 when x = 0. \\
+	
+	To prove 2, we use the principle of scalar multipliply of vectors: \( cv = (cv_1, cv_2, ... , cv_n)^T\) and scalar multipliply of matricies.  To preserve magnitude and direction, we take the absolute value of the constant: \( |c| \). \\
+	
+	To prove 3, we say:\\
+	\(  \Vert x + y \Vert  \leq sup(\Sigma_{i=1}^{n} x_i u_i + y_i v_i)) = \Vert x \Vert + \Vert y \Vert \).  The energy norm is a vector like all others, so that the triangle inequality operates on it should be simply presumed by its nature.	\\
+	
+	Therefore, the energy norm is a vector norm. \\ \\ \\
+	
+
+
+\noindent
+4.\\
+\noindent
+a.\\
+	
+	By solving the matrix for its determinant, we would find the determinant to be \( (c*c)-(-s*s) \).  Rewritten, this is \( c^2 + s^2 \) which is given to be 1.  \\
+	
+	The transpose of the matrix is
+
+	\[ \begin{bmatrix}
+		c & -s \\
+		s & c
+	\end{bmatrix}
+	\] 
+	
+	which, when multiplied by the original matrix 
+	
+	\[ \begin{bmatrix}
+		c & s \\
+		-s & c
+	\end{bmatrix}
+	\] 
+	
+	yields 
+	
+	\[ \begin{bmatrix}
+		(c*c)+(-s*-s) & (c*s)+(-s*c) \\
+		(s*c)+(c*-s) & (s*s)+(c*c)
+	\end{bmatrix}
+	\] 
+	
+	which is equal to 
+	
+	\[ \begin{bmatrix}
+		(c*c)+(-s*-s) & 0 \\
+		0 & (s*s)+(c*c)
+	\end{bmatrix}
+	\] 
+	
+	which is \( c^2*s^2 \) multiplied by the 2x2 identity matrix.  Thus, we have shown that the matrix has a transpose such that the matrix multiplied by its transpose yields the identity matrix. \\ \\ \\
+	
+\noindent
+b.\\
+	From the matrix equation, we can assume that the determinant \(= c^2 + S^2 = 1 \) by orthogonality. Further, we get \( c^2 + S^2 =1 \) and \( a = a_1s + a_2c\) \\
+	
+	From \( c^2 + s^2 =1 \), we can determine that \( c^2a_1 = s^2a_1 \) and \( s^2a_1 = (1-c^2)a_1^2 \)\\
+	
+	Thus, \( c^2a_2^2 = (a_1^2 - c^2a_1^2)  \Rightarrow s^2c^2a_2^2 = s^2a_1^2 - s^2c^2a_1^2  \Rightarrow a_1^2s^2c^2a_2^2 = a_1^2s^2a_1^2 - a_1^2s^2c^2a_1^2  \Rightarrow c^2a_2^2c^2a_2^2 = a_1^2c^2a_2^2 - a_1^2c^2c^2a_2^2 \Rightarrow c=\pm \frac{a_1}{sqrt{a_2^2+a_1^2}}\)
+	
+	Therefore, because \( s^2 = 1-c^2 = 1- (\frac{a_1}{\sqrt{a_2^2+a_1^2}})^2 = 1- \frac{a_1^2}{a_2^2+a_1^2} = c^2a_2^2\) \\ 
+	So \( s = \pm \frac{a_2}{\sqrt{a_2^2+a_1^2}}\)\\
+	
+		Therefore, because \(a = a_1s + a_2c\), we can state that \( a = a_1(\frac{ a_2 }{ \sqrt{ a_2^2+a_1^2} }) ) = \frac{ a_1^2 + a_2^2 }{\sqrt{a_2^2+a_1^2}} \) \\
+	
+	So, \(a = \sqrt(a_2^2 + a_1^2)\)  and the s, c that do this job are: \( s = \pm \frac{a_2}{\sqrt{a_2^2+a_1^2}} \) and \( c=\pm \frac{a_1}{\sqrt{a_2^2+a_1^2}} \) \\ \\ \\
+
+
+	
+\noindent
+5.\\
+\noindent
+a.\\
+	
+	By definition of the orthogonal matrix, matrix A is said to be orthogonal iff \( AA^T=I \) where \( A^T \) is the transpose of the matrix A, and I is the identity matrix.\\
+	By assigning matrix B to hold \( A^T \), we can re-write this as \( AB = I\).\\
+	
+	By taking the determinants of both sides of this equation, we get \( det(AB) = det(I)\).  By the properties of determinants, we can re-write this as \(det(A)*det(B)=det(I) \Rightarrow det(A) det(A^T) = det(I)\) \\
+	 
+	We know the determinant of a matrix is the same as the determinant of its transpose.  Thus, \( det(A) det(A^T) = det(I) \Rightarrow (det(A))^2 = det(I)\)\\
+	
+	The determinant of the identity matrix is 1.  Thus, \( (det(A))^2 = 1 \\\Rightarrow det(A) = \pm1\)\\
+	
+	So, \( det(A) = \pm1\) \\ \\ \\
+	
+
+\noindent
+b.\\
+	For projector P and vector non-zero x,\\
+	 \( Px = \lambda x\)  for \(P^2 = P, P^2x = \lambda x\) by replacing P with \(P^2\)\\
+	 \(= P*Px = \lambda x\). \\
+	 
+	  Because  \( Px = \lambda x\), we can say \( P*Px = \lambda x \\ \Rightarrow \lambda * \lambda x = \lambda x \Rightarrow \lambda ^2 = \lambda\\ \) \\
+	  
+	Therefore, the eigenvalue is 0 or 1.
+	    
+	
+	
+
+
+\end{document}  

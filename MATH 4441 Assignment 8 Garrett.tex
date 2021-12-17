@@ -1,0 +1,65 @@
+\documentclass[12pt, a4paper]{article}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+
+\begin{document}
+\noindent
+Nicholas Garrett\\ \\
+Professor Zhu\\ \\
+MATH 4441\\ \\
+10/27/2021\\ \\
+
+
+\begin{center}
+	\centering{	Homework 8\\ }
+\end{center}
+
+\noindent
+1.\\
+See code\\
+
+The error norm for Gauss-Seidel was 0.9720, and the error norm for Jacobi (after 2 iterations) was 0.0288, so Jacobi seems to be converging faster between the two. \\ \\ \\
+
+2.\\
+
+The variable a has to be between 0 (to be positive) and \(\frac{1}{2}\). \\
+In this range, the Jacobi iteration does not converge and the error accelerates into larger and larger numbers. \\ \\ \\
+
+3.a.\\
+ \(M = \alpha^{-1}\) \\
+B is the iteration matrix,  and \(B = I-\alpha A\)\\
+...
+
+3.b.i.\\
+By definition of eigenvalues, \( Ax = \lambda x\)\\
+
+And as \(A = (I-\alpha A)\)\\
+
+\(
+\Rightarrow (I - \alpha A)x = \lambda x\\
+\Rightarrow (Ix - \alpha Ax = (Ix - \alpha \lambda x) = (I - \alpha \lambda)x \)\\
+
+\( \rho (B) = \rho (I - \alpha A) = (1-\alpha \lambda)\), which must be < 1 for this to converge.
+
+\( (1- \alpha \lambda)<1\\
+\Rightarrow - \alpha \lambda < 1 \)
+
+For this to occur, \(\alpha > 0\) \\ \\ \\
+
+
+3.b.ii.\\
+By theorem 3, as A is symmetric positive definite, ( I use f because I cannot find the greek letter used in the notes) \( g(\alpha) = f(x_k + \alpha p_k) = \frac{1}{2}(x_k + \alpha p_k)^T A(x_k + \alpha p_k)-(x_k + \alpha p_k)^Tb\), which is what we want to minimize for \( \alpha\).\\ 
+
+By substituting alpha into the equations, we get:\\ \(  g(\frac{2}{\lambda _ 1 + \lambda _ n}) = f(x_k + \alpha p_k) = \frac{1}{2}(x_k + \frac{2}{\lambda _ 1 + \lambda _ n} p_k)^T A(x_k + \frac{2}{\lambda _ 1 + \lambda _ n} p_k)-(x_k + \frac{2}{\lambda _ 1 + \lambda _ n} p_k)^Tb\)
+
+   ...
+
+\end{document}  
