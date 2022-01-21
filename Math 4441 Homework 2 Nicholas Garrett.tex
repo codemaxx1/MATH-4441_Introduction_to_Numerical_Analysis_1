@@ -25,43 +25,44 @@ Math 4441\\ \\
 
 
 1.\\
-	A better formula would be \( f'(x_{0}) = \frac{2}{h}sin(\frac{(x_{0}+h) - x_{0}}{2}) cos(\frac{(x_{0}+ h)+x_{0}}{2}) \)
-	Which, when compared to the exact derrivative, follows very closely to what would be expected.  
+	A better formula would be \( f'(x_{0}) = \frac{2}{h}sin(\frac{h}{2}) cos(\frac{(x_{0}+ h)+x_{0}}{2}) \)
+	Compared to the exact derrivative of sin(x), this approximatinog is is computationally close.
 	\begin{center}
 		\centering
-		\includegraphics[width=100mm]{math4441_homework2_Nicholas_Garrett_problem1_error}
+		\includegraphics[width=100mm]{project2Problem1output.png}
+		\includegraphics[width=100mm]{exampleTaylorApproximationOutput.png}
 	\end{center}
-	The difference in accuracy could be explained by seeing how the original example subtracts one term from the other.  This caused every other order of the Taylor approximation to cancel.  However, by using the triganometric identity to remove the subraction, that difference error is effectively removed.\\ \\
+	As seen in the image for my approximation (top), the results for my program are much more stable and accurate than the results from the example program from class (bottom).  This is most likely due to there being a reduced cancellation error for this approximation.
 	
-2.\\
+2.a.\\
 
-a.\\
+	\( \sqrt{x+ \frac{1}{x}} - \sqrt{x -  \frac{1}{x}} \) where \(x >> 1\) would lead to two numbers close to equal being subtracted from one another, leading to a cancellation error. \\
+	A better way to write this would be to multiply this function by
+\( \frac{  \sqrt{x+ \frac{1}{x}} + \sqrt{x -  \frac{1}{x}} }{  \sqrt{x+ \frac{1}{x}} + \sqrt{x -  \frac{1}{x}} } \),
+ which would make \( \frac{1}{ 2x \sqrt{x+ \frac{1}{x}} + \sqrt{x -  \frac{1}{x}} } \) \\ 
 
-	\( \sqrt{x+ \frac{1}{x}} - \sqrt{x -  \frac{1}{x}} \) where \(x >> 1\) would lead to two numbers close to equal being subtracted from one another, leading to a difference error. \\
-	A better way to write this would be to multiply \( \sqrt{x - \frac{1}{x}} \) by \( \frac{\sqrt{x + \frac{1}{x}}}{\sqrt{x + \frac{1}{x}}} \), which would make \( \frac{\sqrt{x^2 - 1}}{2} \) \\
-	So,  \( \sqrt{x+ \frac{1}{x}} - \sqrt{x -  \frac{1}{x}} \Longrightarrow  \sqrt{x+ \frac{1}{x}} - \frac{\sqrt{x^2 - 1}}{\sqrt{2}} \) where \( x>>1 \) \\
+	So,  \( \sqrt{x+ \frac{1}{x}} - \sqrt{x -  \frac{1}{x}} \Longrightarrow \frac{1}{ 2x \sqrt{x+ \frac{1}{x}} + \sqrt{x -  \frac{1}{x}} } \) where \( x>>1 \) \\ \\ \\
 
-b.\\
-	The problem with this... problem is that a very small number is in the denominator.  As the denominator approaches zero, the value grows.  \\
+2.b.\\
+	The problem in this instance is that a very small number is in the denominator.  As the denominator approaches zero, the value grows, so \(\frac{1}{a^2} >> \frac{1}{b^2}\).  \\
 	\( \sqrt{\frac{1}{a^2} + \frac{1}{b^2}} = \sqrt{\frac{a^2 + b^2}{a^2b^2}} = \frac{\sqrt{a^2 + b^2}}{ab}\)  \\
-	So, a better way to write this formula would be \( \frac{\sqrt{a^2 + b^2}}{ab} \) where a \( \approx \) 0 and b \( \approx \) 1. \\
+	So, a better way to write this formula would be \( \frac{\sqrt{a^2 + b^2}}{ab} \) where a \( \approx \) 0 and b \( \approx \) 1. \\ \\ \\
 
 
-c.\\
-	Because of the subtraction, a cancellation error would occur.
-	A better way to write it would be \( ln(\sqrt{2x(1 - 2\sqrt{x^2 -1}) -1 } ) \)\\  \\ \\
+2.c.\\
+	Because of the subtraction, a cancellation error would occur. To improve this calculation, we should multiply \(x-\sqrt{x^2 -1}\) by \( \frac{x+\sqrt{x^2 -1}}{x+\sqrt{x^2 -1}} \), which yields \(\frac{x^2 - (\sqrt{x^2-1})^2}{x+\sqrt{x^2-1}}\). \(\Rightarrow \frac{x^2 - x^2+1}{x+\sqrt{x^2-1}}\)\\
+
+	So, a better way to write it would be \( ln( \frac{1}{x+\sqrt{x^2 -1}} ) \)\\  \\ \\
 	
 
-3.\\
-
-a.\\ 
-	If \( a \approx b \), this will make the equation simplify to \( x+y=1 \) and \( y+x = 0 \), which is impossible.\\
+3.a.\\ 
+	From the matrix, it can be found that \(x = \frac{a}{a^2-b^2}\) and \(y = \frac{-b}{a^2-b^2}\).  If \(a\approx b\), then this will cause x and y to become very large due to cancellation error between a and b and dividing by a near-zero.   \\
 \\
 
-b.\\  
- From the matrix, we get  \( ax+by = 1 \) and \( bx + ay = 0 \) which can be rewritten to state \( x=\frac{a}{a^2 - b^2}  \) and \( y=\frac{b}{b^2 - a^2} \).  As a and b are presumed to be provided, we can solve for x and y.  This would then lead us to finding z.\\
- So, \( z =  \frac{a}{(a-b)(a+b)} +  \frac{b}{(b-a)(a+b)} \)
+3.b.\\  
+From the matrix, we get that ax + by = 1 and bx + ay = 0.  As explained in part a,  \(x = \frac{a}{a^2-b^2}\) and \(y = \frac{-b}{a^2-b^2}\).  So by using this information, the calculation z = x + y can be rewritten: \(z =  \frac{a}{a^2-b^2} + \frac{-b}{a^2-b^2} = \frac{a-b}{a^2-b^2} = \frac{a-b}{(a+b)(a-b)}\).\\
  
+By this, we can factor out (a-b), and get \(z = \frac{1}{a+b}\), which is stable.
 
 
 

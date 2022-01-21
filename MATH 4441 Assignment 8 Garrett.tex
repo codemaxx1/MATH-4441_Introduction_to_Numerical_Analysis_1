@@ -26,33 +26,19 @@ MATH 4441\\ \\
 1.\\
 See code\\
 
-The error norm for Gauss-Seidel was 0.9720, and the error norm for Jacobi (after 2 iterations) was 0.0288, so Jacobi seems to be converging faster between the two. \\ \\ \\
+The error norm for Gauss-Seidel after a single iteration was 31.82, and the error norm for Jacobi (after 2 iterations) was 6.624, so Jacobi seems to be converging more slowly after two iterations than Gauss-Seidel after a single iteration. \\ \\ \\
 
 2.\\
 
-The variable a has to be between 0 (to be positive) and \(\frac{1}{2}\). \\
-In this range, the Jacobi iteration does not converge and the error accelerates into larger and larger numbers. \\ \\ \\
+For the matrix to be positive, \(a > 0\).  Then, because the convergence of the Jacobi iteration sequence requires that \(\rho(A) < 1\).  The eigenvalues of A are : \(1-a\) and \(2a+1\). For the absolute value of the maximum eigenvalue to be \(< 1\), a cannot be any value, as the maximum eigenvalue is \(> 1\) for every value of a.  Therefore, a can be any value greater than zero.  \\ \\ \\
 
 3.a.\\
  \(M = \alpha^{-1}\) \\
-B is the iteration matrix,  and \(B = I-\alpha A\)\\
-...
+B is the iteration matrix,  and \(B = I-\alpha A\)\\ \\ \\
+
 
 3.b.i.\\
-By definition of eigenvalues, \( Ax = \lambda x\)\\
-
-And as \(A = (I-\alpha A)\)\\
-
-\(
-\Rightarrow (I - \alpha A)x = \lambda x\\
-\Rightarrow (Ix - \alpha Ax = (Ix - \alpha \lambda x) = (I - \alpha \lambda)x \)\\
-
-\( \rho (B) = \rho (I - \alpha A) = (1-\alpha \lambda)\), which must be < 1 for this to converge.
-
-\( (1- \alpha \lambda)<1\\
-\Rightarrow - \alpha \lambda < 1 \)
-
-For this to occur, \(\alpha > 0\) \\ \\ \\
+For the iteration matrix to converge, \(\rho(B) < 1\).  B = I - \(M^{-1}A\), and by part A, we find that B = I - \(\alpha\)A.  For \(\rho(B)\) to be less than 1, \( max|\lambda | = |I-\lambda (I-\alpha A)|<1 \),   which can be guaranteed if \(\alpha = \lambda\). \\ \\ \\
 
 
 3.b.ii.\\
